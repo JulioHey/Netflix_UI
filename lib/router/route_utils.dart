@@ -1,10 +1,12 @@
-enum Pages { splashScreen }
+enum Pages { splashScreen, login }
 
 extension PagesExtension on Pages {
   String get toPath {
     switch (this) {
       case Pages.splashScreen:
         return "/loading";
+      case Pages.login:
+        return "/login";
       default:
         return "/";
     }
@@ -14,6 +16,8 @@ extension PagesExtension on Pages {
     switch (this) {
       case Pages.splashScreen:
         return "LOADING";
+      case Pages.login:
+        return "LOGIN";
       default:
         return "";
     }

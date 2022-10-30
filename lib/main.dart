@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:netflix/router/router.dart';
+import 'package:netflix/theme/theme.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
 
@@ -27,6 +28,7 @@ class _MyAppState extends State<MyApp> {
                 Provider.of<AppRouter>(context, listen: false).router;
 
             return MaterialApp.router(
+              theme: theme,
               routerConfig: goRouter,
             );
           },
