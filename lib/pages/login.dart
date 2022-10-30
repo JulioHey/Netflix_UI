@@ -1,5 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:netflix/pages/splash_screen.dart';
+import 'package:netflix/router/route_utils.dart';
 import 'package:netflix/theme/colors.dart';
 import 'package:netflix/utils/assets.dart';
 import 'package:netflix/widget/button.dart';
@@ -77,7 +80,14 @@ class _LoginPageState extends State<LoginPage> {
               height: 15,
             ),
             Button.outlined(
-              onPressed: () {},
+              onPressed: () {
+                showDialog(
+                    context: context, builder: (_) => const SplashScreen());
+                Future.delayed(const Duration(seconds: 5), () {
+                  Navigator.of(context).pop();
+                  context.goNamed(Pages.chosseProfile.toName);
+                });
+              },
               child: Center(
                 child: Text("Entrar",
                     style: Theme.of(context).textTheme.subtitle1!.copyWith(

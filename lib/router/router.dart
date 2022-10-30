@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:netflix/pages/choose_profile.dart';
 import 'package:netflix/pages/login.dart';
 import 'package:netflix/pages/splash_screen.dart';
 import 'package:netflix/router/route_utils.dart';
@@ -19,6 +19,10 @@ class AppRouter {
     GoRoute(
         path: Pages.login.toPath,
         name: Pages.login.toName,
-        builder: (_, __) => const LoginPage())
+        builder: (_, __) => const LoginPage()),
+    GoRoute(
+        path: Pages.chosseProfile.toPath,
+        name: Pages.chosseProfile.toName,
+        builder: (_, __) => const ChooseProfile()),
   ]);
 }
