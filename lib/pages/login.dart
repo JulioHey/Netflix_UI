@@ -83,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
               onPressed: () {
                 showDialog(
                     context: context, builder: (_) => const SplashScreen());
-                Future.delayed(const Duration(seconds: 5), () {
+                Future.delayed(const Duration(seconds: 2), () {
                   Navigator.of(context).pop();
                   context.goNamed(Pages.chosseProfile.toName);
                 });
@@ -127,7 +127,7 @@ class _LoginPageState extends State<LoginPage> {
                         'O acesso está protegido pelo Google reCAPTCHA para garantir que você não é um robô.',
                   ),
                   TextSpan(
-                      text: ' Saiba mais.',
+                      text: showSaibaMais ? ' Saiba mais.' : "",
                       style: const TextStyle(fontWeight: FontWeight.bold),
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
