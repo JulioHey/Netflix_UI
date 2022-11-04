@@ -5,23 +5,48 @@ class UserIcon extends StatelessWidget {
   final String name;
   final String iconUrl;
   final void Function() onPressed;
+  final bool isEditing;
   const UserIcon(
       {super.key,
       required this.name,
+      required this.isEditing,
       required this.onPressed,
       this.iconUrl = NetflixIcons.blueUser});
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+
     return GestureDetector(
       onTap: onPressed,
       child: Column(
         children: [
           SizedBox(
-              height: 140,
-              child: Image.asset(
-                iconUrl,
-                fit: BoxFit.fill,
+              height: width * 0.225,
+              width: width * 0.225,
+              child: Stack(
+                children: [
+                  Image.asset(
+                    iconUrl,
+                    fit: BoxFit.fill,
+                  ),
+                  Container(
+                    width: double.infinity,
+                    height: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Color.fromRGBO(0, 0, 0, isEditing ? 0.5 : 0),
+                    ),
+                  ),
+                  Center(
+                    child: Visibility(
+                      visible: isEditing,
+                      child: const Icon(
+                        Icons.edit,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ],
               )),
           Text(
             name,

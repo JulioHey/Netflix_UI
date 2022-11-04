@@ -1,0 +1,23 @@
+const List<String> languages = [
+  "Bahasa Indonesia",
+  "Bahasa Melayu",
+  "Dansk",
+  "Deustch",
+  "English",
+  "Español",
+  "Filipino",
+  "Français",
+  "Hrvatski",
+  "Italiano",
+  "Magyar",
+  "Nederlands",
+  "Norsk bokmal",
+  "Polski",
+  "Português",
+  "Româna",
+  "Suomi",
+  "Svenska",
+  "Tieng Viêt",
+  "Turkçe",
+  "Cestina"
+];

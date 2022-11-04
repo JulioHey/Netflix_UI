@@ -13,6 +13,10 @@ class ChooseProfile extends StatefulWidget {
 }
 
 class _ChooseProfileState extends State<ChooseProfile> {
+  bool isEditing = false;
+
+  List<String> profiles = ["Julio", "Pai", "Mãe", "Helena", "Guilherme"];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +27,7 @@ class _ChooseProfileState extends State<ChooseProfile> {
           child: Column(
             children: [
               const SizedBox(
-                height: 40,
+                height: 20,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -37,43 +41,50 @@ class _ChooseProfileState extends State<ChooseProfile> {
                       color: Colors.white,
                     ),
                     onTap: () {
-                      context.goNamed(Pages.login.toName);
+                      setState(() {
+                        isEditing = !isEditing;
+                      });
                     },
                   )
                 ],
               ),
               const SizedBox(
+                height: 100,
+              ),
+              SizedBox(
+                  width: double.infinity,
+                  child: Text(
+                    "Quem está assistindo?",
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.subtitle1,
+                  )),
+              const SizedBox(
                 height: 40,
               ),
               SizedBox(
-                height: 600,
+                width: MediaQuery.of(context).size.width * 0.62,
+                height: MediaQuery.of(context).size.height,
                 child: GridView(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
-                      mainAxisSpacing: 5,
-                      crossAxisSpacing: 5),
-                  children: [
-                    UserIcon(
-                      name: "Julio",
-                      onPressed: () {},
-                    ),
-                    UserIcon(
-                      name: "Mãe",
-                      onPressed: () {},
-                    ),
-                    UserIcon(
-                      name: "Pai",
-                      onPressed: () {},
-                    ),
-                    UserIcon(
-                      name: "Helena",
-                      onPressed: () {},
-                    ),
-                    UserIcon(
-                      name: "Guilherme",
-                      onPressed: () {},
-                    ),
-                  ],
+                      mainAxisSpacing: 10,
+                      crossAxisSpacing: 20),
+                  children: profiles
+                      .map((name) => Stack(
+                            children: [
+                              UserIcon(
+                                name: name,
+                                onPressed: () {
+                                  if (isEditing) {
+                                    context.pushNamed(Pages.editProfile.toName,
+                                        extra: name);
+                                  }
+                                },
+                                isEditing: isEditing,
+                              ),
+                            ],
+                          ))
+                      .toList(),
                 ),
               ),
             ],

@@ -8,7 +8,7 @@ class Input extends StatefulWidget {
   final bool password;
   final Widget action;
 
-  Input({
+  const Input({
     Key? key,
     required this.controller,
     this.action = const SizedBox(),
@@ -67,7 +67,8 @@ class _InputState extends State<Input> {
                       top: isFocused || widget.controller.text != "" ? 40 : 0),
                   child: Text(widget.label),
                 ),
-                contentPadding: const EdgeInsets.only(top: 20, bottom: 0),
+                contentPadding: EdgeInsets.only(
+                    top: widget.label == "" ? 10 : 20, bottom: 0),
                 isCollapsed: true),
             controller: widget.controller,
           ),

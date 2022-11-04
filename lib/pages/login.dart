@@ -85,7 +85,7 @@ class _LoginPageState extends State<LoginPage> {
                     context: context, builder: (_) => const SplashScreen());
                 Future.delayed(const Duration(seconds: 2), () {
                   Navigator.of(context).pop();
-                  context.goNamed(Pages.chosseProfile.toName);
+                  context.goNamed(Pages.chooseProfile.toName);
                 });
               },
               child: Center(
@@ -127,14 +127,13 @@ class _LoginPageState extends State<LoginPage> {
                         'O acesso está protegido pelo Google reCAPTCHA para garantir que você não é um robô.',
                   ),
                   TextSpan(
-                      text: showSaibaMais ? ' Saiba mais.' : "",
+                      text: !showSaibaMais ? ' Saiba mais.' : "",
                       style: const TextStyle(fontWeight: FontWeight.bold),
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
                           setState(() {
                             showSaibaMais = true;
                           });
-                          ;
                         }),
                 ],
               ),
@@ -156,10 +155,7 @@ class _LoginPageState extends State<LoginPage> {
                       TextSpan(
                           text: 'Política de Privacidade',
                           style: const TextStyle(fontWeight: FontWeight.bold),
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () {
-                              ;
-                            }),
+                          recognizer: TapGestureRecognizer()..onTap = () {}),
                       const TextSpan(text: " e aos "),
                       TextSpan(
                           text: 'Termos de Uso',

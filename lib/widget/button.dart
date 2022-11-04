@@ -4,16 +4,19 @@ class Button extends StatelessWidget {
   final BoxDecoration decoration;
   final Widget child;
   final void Function() onPressed;
+  final EdgeInsets padding;
   const Button(
       {super.key,
       required this.child,
       this.decoration = const BoxDecoration(),
+      this.padding = const EdgeInsets.symmetric(vertical: 12),
       required this.onPressed});
 
-  Button.outlined(
+  const Button.outlined(
       {super.key,
       required this.child,
       required this.onPressed,
+      this.padding = const EdgeInsets.symmetric(vertical: 12),
       this.decoration = const BoxDecoration(
         border: Border(
             top: BorderSide(color: Colors.white),
@@ -25,12 +28,12 @@ class Button extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(12),
-      decoration: decoration,
+    return InkWell(
+      onTap: onPressed,
       child: Center(
-        child: InkWell(
-          onTap: onPressed,
+        child: Container(
+          padding: padding,
+          decoration: decoration,
           child: child,
         ),
       ),
