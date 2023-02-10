@@ -26,7 +26,6 @@ class _MyAppState extends State<MyApp> {
           builder: (context) {
             final GoRouter goRouter =
                 Provider.of<AppRouter>(context, listen: false).router;
-
             return MaterialApp.router(
               theme: theme,
               routerConfig: goRouter,

@@ -8,7 +8,7 @@ void main() {
   group("LegendTile", () {
     testWidgets("should render correctly", (WidgetTester tester) async {
       await tester.pumpWithMaterialAndScaffold(const LegendTile(
-        title: "Title",
+        title: Text("Title"),
         child: Text("Child"),
       ));
 
