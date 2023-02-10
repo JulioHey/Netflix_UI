@@ -1,13 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
 import 'package:netflix/utils/assets.dart';
-
-void main() {
-  testWidgets('UserIcon', (WidgetTester tester) async {
-    await tester
-        .pumpWidget(UserIcon(name: "Julio", isEditing: true, onPressed: () {}));
-  });
-}
 
 class UserIcon extends StatelessWidget {
   final String name;

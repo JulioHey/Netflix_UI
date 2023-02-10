@@ -4,14 +4,14 @@ import 'package:netflix/theme/colors.dart';
 import 'package:netflix/utils/legends.dart';
 import 'package:netflix/utils/num.dart';
 
-class LanguageExibitionPage extends StatefulWidget {
-  const LanguageExibitionPage({super.key});
+class LegendExibitionPage extends StatefulWidget {
+  const LegendExibitionPage({super.key});
 
   @override
-  State<LanguageExibitionPage> createState() => _LanguageExibitionPageState();
+  State<LegendExibitionPage> createState() => _LegendExibitionPageState();
 }
 
-class _LanguageExibitionPageState extends State<LanguageExibitionPage> {
+class _LegendExibitionPageState extends State<LegendExibitionPage> {
   List<bool> isSelected = [true, false, false];
   LegendColor selectedColor = LegendsColors.preto;
 

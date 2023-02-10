@@ -7,7 +7,8 @@ import 'package:netflix/widget/user_splash.dart';
 void main() {
   testWidgets('UserIcon should render correctly when isEditing is false',
       (WidgetTester tester) async {
-    await tester.pumpWithMaterialApp(UserIcon(
+    await tester.pumpWithMaterialApp(
+        child: UserIcon(
       name: "Julio",
       isEditing: false,
       onPressed: () {},
@@ -28,7 +29,8 @@ void main() {
 
   testWidgets('UserIcon should render correctly when isEditing is true',
       (WidgetTester tester) async {
-    await tester.pumpWithMaterialApp(UserIcon(
+    await tester.pumpWithMaterialApp(
+        child: UserIcon(
       name: "Julio",
       isEditing: true,
       onPressed: () {},
@@ -50,7 +52,8 @@ void main() {
   testWidgets('UserIcon call func when is tapped', (WidgetTester tester) async {
     int counter = 0;
 
-    await tester.pumpWithMaterialApp(Container(
+    await tester.pumpWithMaterialApp(
+        child: Container(
       margin: const EdgeInsets.only(
         top: 400,
         right: 300,

@@ -38,7 +38,7 @@ class AppRouter {
     GoRoute(
         path: Pages.legendExibition.toPath,
         name: Pages.legendExibition.toName,
-        builder: (_, __) => const LanguageExibitionPage()),
+        builder: (_, __) => const LegendExibitionPage()),
     GoRoute(
         path: Pages.chooseLanguage.toPath,
         name: Pages.chooseLanguage.toName,

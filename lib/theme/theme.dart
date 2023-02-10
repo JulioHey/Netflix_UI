@@ -7,8 +7,8 @@ var theme = ThemeData(
     iconTheme: const IconThemeData(
       color: Colors.white,
     ),
-    textTheme: TextTheme(
-        subtitle1: const TextStyle(fontSize: 20, color: Colors.white),
-        headline4: const TextStyle(fontSize: 16, color: Colors.white),
-        caption: const TextStyle(fontSize: 14, color: Colors.white),
-        headline1: const TextStyle(fontSize: 24, color: Colors.white)));
+    textTheme: const TextTheme(
+        subtitle1: TextStyle(fontSize: 20, color: Colors.white),
+        headline4: TextStyle(fontSize: 16, color: Colors.white),
+        caption: TextStyle(fontSize: 14, color: Colors.white),
+        headline1: TextStyle(fontSize: 24, color: Colors.white)));

@@ -16,10 +16,11 @@ class EditProfile extends StatefulWidget {
 }
 
 class _EditProfileState extends State<EditProfile> {
+  late bool replayNextEp = false;
+  late bool automaticPreview = false;
   late TextEditingController controller;
   late String name;
 
-  bool replay = false;
   @override
   void initState() {
     name = widget.name;
@@ -114,10 +115,10 @@ class _EditProfileState extends State<EditProfile> {
                 title: "Reprodução automática do próximo episódio",
                 subtitle: "Em todos aparelhos",
                 trailling: NetflixSwitch(
-                    value: replay,
+                    value: replayNextEp,
                     onChanged: (newValue) {
                       setState(() {
-                        replay = newValue;
+                        replayNextEp = newValue;
                       });
                     })),
             10.ph,
@@ -128,10 +129,10 @@ class _EditProfileState extends State<EditProfile> {
                 title: "Reprodução automática das prévias",
                 subtitle: "Em todos aparelhos",
                 trailling: NetflixSwitch(
-                    value: replay,
+                    value: automaticPreview,
                     onChanged: (newValue) {
                       setState(() {
-                        replay = newValue;
+                        automaticPreview = newValue;
                       });
                     })),
             50.ph,
@@ -140,8 +141,8 @@ class _EditProfileState extends State<EditProfile> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       floatingActionButton: Container(
-        width: MediaQuery.of(context).size.width - 32,
         color: Colors.black,
+        width: MediaQuery.of(context).size.width - 32,
         height: 50,
         child: Button(
           child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
